@@ -13,25 +13,50 @@
 </head>
 
 <body>
-    <div class="play__btns">
-        <button class="play__btn">
+    <div class="controls">
+        <button class="btns playbox">
             <i class="fa-solid fa-play"></i>
-            <audio src="./sound/bg.mp3" class="audio"></audio>
+            <i class="fa-solid fa-square hidden"></i>
         </button>
+        <audio src="./sound/bg.mp3" class="audio"></audio>
         <span class="timer">00 : 10</span>
-        <span class="number">0</span>
+        <span class="number">10</span>
     </div>
 
     <main class="play__content">
-        <img src="./img/carrot.png" alt="carrot_image" class="carrot__img">
-        <img src="./img/bug.png" alt="bug_image" class="bug__img">
-        <img src="./img/carrot.png" alt="carrot_image" class="carrot__img">
-        <img src="./img/bug.png" alt="bug_image" class="bug__img">
-        <img src="./img/carrot.png" alt="carrot_image" class="carrot__img">
-        <img src="./img/bug.png" alt="bug_image" class="bug__img">
-        <img src="./img/carrot.png" alt="carrot_image" class="carrot__img">
-        <img src="./img/bug.png" alt="bug_image" class="bug__img">
+        <div class="carrots">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+            <img src="./img/carrot.png" alt="carrot_image" class="carrot__img hidden">
+        </div>
+
+        <div class="bugs">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+            <img src="./img/bug.png" alt="bug_image" class="bug__img hidden">
+        </div>
     </main>
+
+    <div class="popup hidden">
+        <button class="btns replaybox">
+            <i class="fa-solid fa-arrow-rotate-right"></i>
+        </button>
+        <p>REPLAY ❓</p>
+    </div>
 </body>
 
 </html>

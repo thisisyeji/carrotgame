@@ -13,20 +13,22 @@ body {
 	align-items: center;
 }
 
-.play__btns {
+.controls {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 	flex-basis: 50%;
+	overflow: hidden;
 }
 
 .play__content {
+	position: relative;
 	width: 100%;
 	flex-basis: 50%;
 }
 
-.play__btn {
+.btns {
 	width: 60px;
 	height: 60px;
 	font-size: 2rem;
@@ -37,7 +39,7 @@ body {
 	cursor: pointer;
 }
 
-.play__btn:hover {
+.btns:hover {
 	transform: scale(1.1);
 }
 
@@ -71,4 +73,37 @@ img {
 
 img:hover {
 	transform: scale(1.1);
+}
+
+.carrot__img,
+.bug__img {
+	position: absolute;
+}
+
+.popup {
+	position: absolute;
+	bottom: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 150px;
+	font-size: 3rem;
+	color: whitesmoke;
+	background-color: rgba(78, 75, 75, 0.5);
+	border-radius: 30px;
+}
+
+i.hidden {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.invisible {
+	opacity: 0;
+	transform: rotate(-100px);
 }
