@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![screenshot](./img/screenshot.png.png)
+![screenshot](./img/screenshot.png)
 ![screenshot__Win](./img/screenshot_win.png)
 ![screenshot__Lose](./img/screenshot_lose.png)
 
