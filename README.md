@@ -42,8 +42,26 @@ Users should be able to:
 
 ### What I learned
 
-```css
+-   clearInterval
 
+```js
+function resetTimer() {
+	clearInterval(timeLoading);
+	timeLeft = 10;
+}
+```
+
+-   removeEventListener
+
+```js
+function removeEvent() {
+	for (let i = 0; i < carrot.length; i++) {
+		carrot[i].removeEventListener('click', win);
+	}
+	for (let i = 0; i < bug.length; i++) {
+		bug[i].removeEventListener('click', lose);
+	}
+}
 ```
 
 ## Author
