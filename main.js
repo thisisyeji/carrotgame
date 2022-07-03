@@ -23,6 +23,8 @@ playBtn.addEventListener("click", () => {
     resetTimer();
     setTimer();
     random();
+    startEvent();
+
     playBtn.classList.add(HIDDEN_CLASSNAME);
     stopBtn.classList.remove(HIDDEN_CLASSNAME);
 });
@@ -36,17 +38,7 @@ stopBtn.addEventListener("click", () => {
 });
 
 
-for (let i = 0; i < carrot.length; i++) {
-    carrot[i].addEventListener("click", win);
-}
 
-for (let i = 0; i < bug.length; i++) {
-    bug[i].addEventListener("click", () => {
-        const bugSound = document.querySelector(".bug__sound");
-        bugSound.play();
-        lose()
-    });
-}
 
 
 // Timer
@@ -70,6 +62,31 @@ function start() {
     } else if (timeLeft >= 1 || timeLeft <= 9) {
         timer.innerText = `00 : ${timeLeft}`
     }
+};
+
+
+// Game Start
+
+function startEvent() {
+    for (let i = 0; i < carrot.length; i++) {
+        carrot[i].addEventListener("click", win);
+    };
+
+    for (let i = 0; i < bug.length; i++) {
+        bug[i].addEventListener("click", lose);
+    };
+};
+
+
+// Game End
+
+function removeEvent() {
+    for (let i = 0; i < carrot.length; i++) {
+        carrot[i].removeEventListener("click", win);
+    };
+    for (let i = 0; i < bug.length; i++) {
+        bug[i].removeEventListener("click", lose);
+    };
 };
 
 
@@ -110,8 +127,8 @@ function popUp() {
     bgSound.currentTime = 0;
     playbox.classList.add(INVISIBLE_CLASSNAME);
     popup.classList.remove(HIDDEN_CLASSNAME);
-    // carrot.removeEventListener("click", win);
     replaybox.addEventListener("click", replay);
+    removeEvent();
 };
 
 function replay() {
@@ -119,18 +136,23 @@ function replay() {
     resetTimer();
     setTimer();
     random();
+    startEvent();
     bgSound.play();
     playbox.classList.remove(INVISIBLE_CLASSNAME);
     popup.classList.add(HIDDEN_CLASSNAME);
 }
 
-
 function lose() {
     resetTimer();
     timer.innerText = "00 : 00";
+    const bugSound = document.querySelector(".bug__sound");
+    bugSound.play();
     popUp();
     popupText.innerText = `YOU LOSE 🥲`;
 };
+
+
+// Pull carrots or bugs 
 
 let num = carrot.length;
 function win(event) {
