@@ -19,7 +19,6 @@ const INVISIBLE_CLASSNAME = "invisible";
 
 
 playBtn.addEventListener("click", () => {
-    bgSound.play();
     resetTimer();
     setTimer();
     random();
@@ -93,6 +92,12 @@ function removeEvent() {
 // Random
 
 function random() {
+    const winSound = document.querySelector(".win__sound");
+    if (winSound.play) {
+        winSound.pause();
+        winSound.currentTime = 0;
+    };
+    bgSound.play();
     for (let i = 0; i < carrot.length; i++) {
         const element = carrot[i];
         element.classList.remove(HIDDEN_CLASSNAME);
@@ -137,9 +142,9 @@ function replay() {
     setTimer();
     random();
     startEvent();
-    bgSound.play();
     playbox.classList.remove(INVISIBLE_CLASSNAME);
     popup.classList.add(HIDDEN_CLASSNAME);
+    popupText.innerText = `REPLAY ❓`;
 }
 
 function lose() {
