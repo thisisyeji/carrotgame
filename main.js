@@ -3,13 +3,13 @@ const stopBtn = document.querySelector(".fa-square");
 const playbox = document.querySelector(".playbox");
 const replaybox = document.querySelector(".replaybox");
 
-const timer = document.querySelector(".timer");
 const bgSound = document.querySelector(".bg__sound");
+const timer = document.querySelector(".timer");
 const number = document.querySelector(".number");
 const popup = document.querySelector(".popup");
 const popupText = document.querySelector(".popup p");
-const content = document.querySelector(".play__content");
 
+const content = document.querySelector(".play__content");
 const carrot = document.querySelectorAll(".carrot__img");
 const bug = document.querySelectorAll(".bug__img");
 
@@ -38,10 +38,7 @@ stopBtn.addEventListener("click", () => {
 
 
 
-
-
 // Timer
-
 let timeLeft = 10;
 let timeLoading;
 function setTimer() {
@@ -65,7 +62,6 @@ function start() {
 
 
 // Game Start
-
 function startEvent() {
     for (let i = 0; i < carrot.length; i++) {
         carrot[i].addEventListener("click", win);
@@ -78,7 +74,6 @@ function startEvent() {
 
 
 // Game End
-
 function removeEvent() {
     for (let i = 0; i < carrot.length; i++) {
         carrot[i].removeEventListener("click", win);
@@ -90,7 +85,6 @@ function removeEvent() {
 
 
 // Random
-
 function random() {
     const winSound = document.querySelector(".win__sound");
     if (winSound.play) {
@@ -124,7 +118,6 @@ function random() {
 
 
 // Pop up box
-
 function popUp() {
     number.innerText = ` ${carrot.length}`;
     resetTimer();
@@ -158,7 +151,6 @@ function lose() {
 
 
 // Pull carrots or bugs 
-
 let num = carrot.length;
 function win(event) {
     const carrotSound = document.querySelector(".carrot__sound");
@@ -180,5 +172,5 @@ function win(event) {
         popupText.innerText = `YOU WIN 🎉`
         const winSound = document.querySelector(".win__sound");
         winSound.play();
-    }
+    };
 };
