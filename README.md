@@ -19,7 +19,8 @@ This is a toy project using HTML, CSS and JavaScript.
 
 Users should be able to:
 
--   Play a game to find only carrots within 10 seconds
+-   Pull all carrots within 10 seconds
+-   Avoid pulling bugs
 
 ### Screenshot
 
