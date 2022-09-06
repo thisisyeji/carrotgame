@@ -66,4 +66,4 @@ function removeEvent() {
 
 ## Author
 
--   Website - [Yeji Kim](https://github.com/yjkim0109)
+-   Website - [Yeji Kim](https://github.com/thisisyeji)
