@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
--   Live Site URL: [https://yjkim0109.github.io/carrotgame/](https://yjkim0109.github.io/carrotgame/)
+-   Live Site URL: [https://thisisyeji.github.io/carrotgame/](https://thisisyeji.github.io/carrotgame/)
 
 ## My process
 
