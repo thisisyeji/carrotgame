@@ -1,9 +1,37 @@
 'use strict';
 
-import * as sound from './sound.js';
 import Field from './field.js';
+import * as sound from './sound.js';
 
-export default class Game {
+export const Reason = Object.freeze({
+	win: 'win',
+	lose: 'lose',
+	cancel: 'cancel',
+});
+
+// Builder Pattern
+export class GameBuilder {
+	withGameDuration(duration) {
+		this.gameDuration = duration;
+		return this;
+	}
+
+	withCarrotCount(num) {
+		this.carrotCount = num;
+		return this;
+	}
+
+	withBugCount(num) {
+		this.bugCount = num;
+		return this;
+	}
+
+	build() {
+		return new Game(this.gameDuration, this.carrotCount, this.bugCount);
+	}
+}
+
+class Game {
 	constructor(gameDuration, carrotCount, bugCount) {
 		this.gameDuration = gameDuration;
 		this.carrotCount = carrotCount;
@@ -14,7 +42,7 @@ export default class Game {
 		this.gameBtn = document.querySelector('.game_button');
 		this.gameBtn.addEventListener('click', () => {
 			if (this.started) {
-				this.stop();
+				this.stop(Reason.cancel);
 			} else {
 				this.start();
 			}
@@ -41,26 +69,12 @@ export default class Game {
 		sound.playBackground();
 	}
 
-	stop() {
+	stop(reason) {
 		this.started = false;
 		this.stopGameTimer();
 		this.hideGameButton();
-		sound.playAlert();
 		sound.stopBackground();
-		this.onGameStop && this.onGameStop('cancel');
-	}
-
-	finish(win) {
-		this.started = false;
-		this.hideGameButton();
-		if (win) {
-			sound.playWin();
-		} else {
-			sound.playBug();
-		}
-		this.stopGameTimer();
-		sound.stopBackground();
-		this.onGameStop && this.onGameStop(win ? 'win' : 'lose');
+		this.onGameStop && this.onGameStop(reason);
 	}
 
 	onItemClick = (item) => {
@@ -72,10 +86,10 @@ export default class Game {
 			this.score++;
 			this.updateScoreBoard();
 			if (this.score === this.carrotCount) {
-				this.finish(true);
+				this.stop(Reason.win);
 			}
 		} else if (item === 'bug') {
-			this.finish(false);
+			this.stop(Reason.lose);
 		}
 	};
 
@@ -101,7 +115,7 @@ export default class Game {
 		this.timer = setInterval(() => {
 			if (remainingTimeSec <= 0) {
 				clearInterval(this.timer);
-				this.finish(this.carrotCount === this.score);
+				this.stop(this.carrotCount === this.score ? Reason.win : Reason.cancel);
 				return;
 			}
 			this.updateTimerText(--remainingTimeSec);
